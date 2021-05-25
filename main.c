@@ -24,8 +24,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "VerifAlpha.h"
-#include "chiffrer.h"
+#include "Entete.h"
 
 char chaine [] = "test2bug ";
 char chaine2[150] ;

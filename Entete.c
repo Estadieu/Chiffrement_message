@@ -1,3 +1,26 @@
+/******************************************************************************
+*  ASR => M2101                                                               *
+*******************************************************************************
+*                                                                             *
+*  N° de Sujet : Sujet 3                                                      *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Intitulé : Chiffrement de messages                                         *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Nom-prénom1 : Jean Estadieu                                                *
+*                                                                             *
+*  Nom-prénom2 :                                                              *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Nom du fichier :  Entete.c                                                 *
+*                                                                             *
+******************************************************************************/
+
+
 #include<stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
@@ -7,12 +30,38 @@
 
 #include "Entete.h"
 
-bool VerifAlpha (char chaine[]){
+void vidBuffer(){
+        int c =0;
+        while (c != '\n' && c != EOF){
+            c = getchar();
+        }
+    }
+
+    int lireChaine (char *chaine, int longueur){
+        char *posEntree = NULL;
+        if (fgets(chaine, longueur, stdin) != NULL){
+            posEntree = strchr(chaine, '\n');
+            if (posEntree != NULL){
+                *posEntree = '\0';
+            }
+            else{
+                vidBuffer();
+            }
+            return 1;
+        }
+        else
+        {
+            vidBuffer();
+            return 0;
+        }
+    }
+
+bool verifAlpha (char chaine[]){
         size_t Tchaine = strlen(chaine);
         bool estJuste = true;
        
        for(int i = 0; i< Tchaine; i++) {
-           if (isalnum(chaine[i]) == false){
+           if (isalnum(chaine[i]) == false && chaine[i] != ' '){
                estJuste = false;
            }
        }
@@ -39,4 +88,8 @@ bool VerifAlpha (char chaine[]){
         }
         ret[i] = '\0';
     }
+
+void dechiffrer (const char* ret, int cle, char * chaine2){
+    chiffrer(ret, -cle, chaine2);
+}
 

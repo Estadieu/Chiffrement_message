@@ -31,3 +31,6 @@ L'objectif de l'application est la protection de textes confidentiels.
 
     Pour vérifier que le code fonctionne bien, j'ai ajouté un fichier Word au projet avec différents exemples d'utilisation. 
 
+    Liens vers le dépot git : -  git@gitlab.com:jeanestadieu/chiffrement_message.git
+			      -  https://gitlab.com/jeanestadieu/chiffrement_message.git
+
